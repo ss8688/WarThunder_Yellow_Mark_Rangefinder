@@ -38,12 +38,9 @@ def checkDistance(model):
         
         sizeK = size/sizeReal
         
-        screen = pyautogui.screenshot('Map.png', region=(resolutionX, resolutionY, resolutionW, resolutionH))
-        #screenScale = ImageGrab.grab(bbox =(1745, 902, 1905, 1062))
-         
-        #screen.save("karta.png")
-        karta = cv2.imread("Map.png")
-        
+        screen = pyautogui.screenshot(region=(resolutionX, resolutionY, resolutionW, resolutionH))
+        karta = cv2.cvtColor(np.array(screen), cv2.COLOR_RGB2BGR)
+
         if int(resolution) > 3:
             screen = screen.resize((size, size))
         
